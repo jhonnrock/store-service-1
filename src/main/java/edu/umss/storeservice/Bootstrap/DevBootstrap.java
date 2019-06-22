@@ -121,8 +121,8 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         stock.setProvider(provider);
         stockRepository.save(stock);
         ////////////////// stock2
-        Stock stock2=new Stock();
 
+        Stock stock2=new Stock();
         stock2.setStock_Code("op789det");
         stock2.setStock_Name("start Foods ");
         stock2.setDaDate_Registered(this.Mytimestamp());
@@ -132,6 +132,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         stock2.setProduct(prod);
         stock2.setProvider(provider);
         stockRepository.save(stock2);
+
 
   }
 }

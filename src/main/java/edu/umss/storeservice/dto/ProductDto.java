@@ -35,5 +35,4 @@ public class ProductDto extends DtoBase<Product> {
     public void setUnit_Cost_Product(BigDecimal unit_Cost_Product) {
         Unit_Cost_Product = unit_Cost_Product;
     }
-
 }

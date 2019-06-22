@@ -20,6 +20,7 @@ public class DtoBase<E extends ModelBase> {
     private Date updatedAt;
     private long version;
 
+
     protected void beforeConversion(E element, ModelMapper mapper) {
         // Do nothing
     }

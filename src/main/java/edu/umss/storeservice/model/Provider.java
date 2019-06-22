@@ -8,7 +8,7 @@ import edu.umss.storeservice.dto.ProviderDto;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 @Entity
 public class Provider extends ModelBase<ProviderDto> {
@@ -23,6 +23,13 @@ public class Provider extends ModelBase<ProviderDto> {
     @OneToOne(optional = false)
     private User user;
 
+    public Timestamp getBirth_date() {
+        return Birth_date;
+    }
+
+    public void setBirth_date(Timestamp birth_date) {
+        Birth_date = birth_date;
+    }
 
     public String getFirst_Name() {
         return First_Name;
@@ -64,13 +71,6 @@ public class Provider extends ModelBase<ProviderDto> {
         Ci_provee = ci_provee;
     }
 
-    public Timestamp getBirth_date() {
-        return Birth_date;
-    }
-
-    public void setBirth_date(Timestamp birth_date) {
-        Birth_date = birth_date;
-    }
 
     public User getUser() {
         return user;

@@ -10,10 +10,26 @@ import javax.persistence.Entity;
 @Entity
 public class User extends ModelBase {
     private String Account_user;
-    private Byte Password_User;
-    private Byte RePassword_User;
+    private byte[] Password_User;
+    private byte[] RePassword_User;
     private String Security_Quest1;
     private String Security_Quest2;
+
+    public byte[] getPassword_User() {
+        return Password_User;
+    }
+
+    public void setPassword_User(byte[] password_User) {
+        Password_User = password_User;
+    }
+
+    public byte[] getRePassword_User() {
+        return RePassword_User;
+    }
+
+    public void setRePassword_User(byte[] rePassword_User) {
+        RePassword_User = rePassword_User;
+    }
 
     public String getAccount_user() {
         return Account_user;
@@ -23,21 +39,6 @@ public class User extends ModelBase {
         Account_user = account_user;
     }
 
-    public Byte getPassword_User() {
-        return Password_User;
-    }
-
-    public void setPassword_User(Byte password_User) {
-        Password_User = password_User;
-    }
-
-    public Byte getRePassword_User() {
-        return RePassword_User;
-    }
-
-    public void setRePassword_User(Byte rePassword_User) {
-        RePassword_User = rePassword_User;
-    }
 
     public String getSecurity_Quest1() {
         return Security_Quest1;

@@ -15,22 +15,6 @@ public class StockDto extends DtoBase<Stock> {
     private Long Product_Id ;
     private Long Provider_Id;
 
-    public String getStock_Code() {
-        return Stock_Code;
-    }
-
-    public void setStock_Code(String stock_Code) {
-        Stock_Code = stock_Code;
-    }
-
-    public String getStock_Name() {
-        return Stock_Name;
-    }
-
-    public void setStock_Name(String stock_Name) {
-        Stock_Name = stock_Name;
-    }
-
     public Timestamp getDaDate_Registered() {
         return DaDate_Registered;
     }
@@ -53,6 +37,22 @@ public class StockDto extends DtoBase<Stock> {
 
     public void setElaboration_Date(Timestamp elaboration_Date) {
         Elaboration_Date = elaboration_Date;
+    }
+
+    public String getStock_Code() {
+        return Stock_Code;
+    }
+
+    public void setStock_Code(String stock_Code) {
+        Stock_Code = stock_Code;
+    }
+
+    public String getStock_Name() {
+        return Stock_Name;
+    }
+
+    public void setStock_Name(String stock_Name) {
+        Stock_Name = stock_Name;
     }
 
     public Integer getStock_Quantity() {

@@ -1,85 +1,95 @@
-/**
- * @author: Johnny .
- */
-
 package edu.umss.storeservice.model;
 
-import edu.umss.storeservice.dto.ProviderDto;
-
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.OneToOne;
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Entity
-public class Provider extends ModelBase<ProviderDto> {
+public class Provider {
+    private String firstName;
+    private String lastName;
+    private String corporateName;
+    private Integer nitProvee;
+    private Integer ciProvee;
+    private Timestamp birthDate;
 
-
-    private String First_Name;
-    private String Last_Name;
-    private String Corporate_Name;
-    private Integer Nit_provee;
-    private Integer Ci_provee;
-    private Timestamp Birth_date;
-    @OneToOne(optional = false)
-    private User user;
-
-    public Timestamp getBirth_date() {
-        return Birth_date;
+    @Basic
+    @Column(name = "First_Name")
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setBirth_date(Timestamp birth_date) {
-        Birth_date = birth_date;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getFirst_Name() {
-        return First_Name;
+    @Basic
+    @Column(name = "Last_Name")
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setFirst_Name(String first_Name) {
-        First_Name = first_Name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getLast_Name() {
-        return Last_Name;
+    @Basic
+    @Column(name = "Corporate_Name")
+    public String getCorporateName() {
+        return corporateName;
     }
 
-    public void setLast_Name(String last_Name) {
-        Last_Name = last_Name;
+    public void setCorporateName(String corporateName) {
+        this.corporateName = corporateName;
     }
 
-    public String getCorporate_Name() {
-        return Corporate_Name;
+    @Basic
+    @Column(name = "Nit_provee")
+    public Integer getNitProvee() {
+        return nitProvee;
     }
 
-    public void setCorporate_Name(String corporate_Name) {
-        Corporate_Name = corporate_Name;
+    public void setNitProvee(Integer nitProvee) {
+        this.nitProvee = nitProvee;
     }
 
-    public Integer getNit_provee() {
-        return Nit_provee;
+    @Basic
+    @Column(name = "Ci_provee")
+    public Integer getCiProvee() {
+        return ciProvee;
     }
 
-    public void setNit_provee(Integer nit_provee) {
-        Nit_provee = nit_provee;
+    public void setCiProvee(Integer ciProvee) {
+        this.ciProvee = ciProvee;
     }
 
-    public Integer getCi_provee() {
-        return Ci_provee;
+    @Basic
+    @Column(name = "Birth_date")
+    public Timestamp getBirthDate() {
+        return birthDate;
     }
 
-    public void setCi_provee(Integer ci_provee) {
-        Ci_provee = ci_provee;
+    public void setBirthDate(Timestamp birthDate) {
+        this.birthDate = birthDate;
     }
 
-
-    public User getUser() {
-        return user;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Provider provider = (Provider) o;
+        return Objects.equals(firstName, provider.firstName) &&
+                Objects.equals(lastName, provider.lastName) &&
+                Objects.equals(corporateName, provider.corporateName) &&
+                Objects.equals(nitProvee, provider.nitProvee) &&
+                Objects.equals(ciProvee, provider.ciProvee) &&
+                Objects.equals(birthDate, provider.birthDate);
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    @Override
+    public int hashCode() {
+        return Objects.hash(firstName, lastName, corporateName, nitProvee, ciProvee, birthDate);
     }
-
-
-
 }

@@ -1,51 +1,60 @@
-/**
- * @author: Johnny .
- */
-
 package edu.umss.storeservice.model;
 
-import edu.umss.storeservice.dto.ImageFileDto;
-
-import javax.persistence.*;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
-public class ImageFile extends ModelBase<ImageFileDto>
-{
-    private String File_Image_Name;
-    private String Format_Image;
-    private String URL_Image;
-    @ManyToOne(optional = false)
-    private Product product;
+@Table(name = "IMAGE_FILE", schema = "dbo", catalog = "SYSTEMSALES4")
+public class ImageFile {
+    private String fileImageName;
+    private String formatImage;
+    private String urlImage;
 
-    public String getFile_Image_Name() {
-        return File_Image_Name;
+    @Basic
+    @Column(name = "File_Image_Name")
+    public String getFileImageName() {
+        return fileImageName;
     }
 
-    public void setFile_Image_Name(String file_Image_Name) {
-        File_Image_Name = file_Image_Name;
+    public void setFileImageName(String fileImageName) {
+        this.fileImageName = fileImageName;
     }
 
-    public String getFormat_Image() {
-        return Format_Image;
+    @Basic
+    @Column(name = "Format_Image")
+    public String getFormatImage() {
+        return formatImage;
     }
 
-    public void setFormat_Image(String format_Image) {
-        Format_Image = format_Image;
+    public void setFormatImage(String formatImage) {
+        this.formatImage = formatImage;
     }
 
-    public String getURL_Image() {
-        return URL_Image;
+    @Basic
+    @Column(name = "URL_Image")
+    public String getUrlImage() {
+        return urlImage;
     }
 
-    public void setURL_Image(String URL_Image) {
-        this.URL_Image = URL_Image;
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
-    public Product getProduct() {
-        return product;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ImageFile imageFile = (ImageFile) o;
+        return Objects.equals(fileImageName, imageFile.fileImageName) &&
+                Objects.equals(formatImage, imageFile.formatImage) &&
+                Objects.equals(urlImage, imageFile.urlImage);
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    @Override
+    public int hashCode() {
+        return Objects.hash(fileImageName, formatImage, urlImage);
     }
 }

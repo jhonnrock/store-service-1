@@ -1,89 +1,95 @@
-/**
- * @author: Johnny .
- */
-
 package edu.umss.storeservice.model;
 
-import edu.umss.storeservice.dto.StockDto;
-
+import javax.persistence.Basic;
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import java.sql.Timestamp;
+import java.util.Objects;
+
 @Entity
-public class Stock extends ModelBase<StockDto> {
+public class Stock {
+    private String stockCode;
+    private String stockName;
+    private Timestamp dateRegistered;
+    private Timestamp expirationDate;
+    private Timestamp elaborationDate;
+    private int stockQuantity;
 
-    private String Stock_Code;
-    private String Stock_Name;
-    private Timestamp DaDate_Registered;
-    private Timestamp Expiration_Date ;
-    private Timestamp Elaboration_Date;
-    private Integer Stock_Quantity ;
-    @ManyToOne(optional = false )
-    private Product product ;
-    @ManyToOne (optional = false )
-    private Provider provider;
-
-    public Timestamp getDaDate_Registered() {
-        return DaDate_Registered;
+    @Basic
+    @Column(name = "Stock_Code")
+    public String getStockCode() {
+        return stockCode;
     }
 
-    public void setDaDate_Registered(Timestamp daDate_Registered) {
-        DaDate_Registered = daDate_Registered;
+    public void setStockCode(String stockCode) {
+        this.stockCode = stockCode;
     }
 
-    public Timestamp getExpiration_Date() {
-        return Expiration_Date;
+    @Basic
+    @Column(name = "Stock_Name")
+    public String getStockName() {
+        return stockName;
     }
 
-    public void setExpiration_Date(Timestamp expiration_Date) {
-        Expiration_Date = expiration_Date;
+    public void setStockName(String stockName) {
+        this.stockName = stockName;
     }
 
-    public Timestamp getElaboration_Date() {
-        return Elaboration_Date;
+    @Basic
+    @Column(name = "Date_Registered")
+    public Timestamp getDateRegistered() {
+        return dateRegistered;
     }
 
-    public void setElaboration_Date(Timestamp elaboration_Date) {
-        Elaboration_Date = elaboration_Date;
+    public void setDateRegistered(Timestamp dateRegistered) {
+        this.dateRegistered = dateRegistered;
     }
 
-    public String getStock_Code() {
-        return Stock_Code;
+    @Basic
+    @Column(name = "Expiration_Date")
+    public Timestamp getExpirationDate() {
+        return expirationDate;
     }
 
-    public void setStock_Code(String stock_Code) {
-        Stock_Code = stock_Code;
+    public void setExpirationDate(Timestamp expirationDate) {
+        this.expirationDate = expirationDate;
     }
 
-    public String getStock_Name() {
-        return Stock_Name;
+    @Basic
+    @Column(name = "Elaboration_Date")
+    public Timestamp getElaborationDate() {
+        return elaborationDate;
     }
 
-    public void setStock_Name(String stock_Name) {
-        Stock_Name = stock_Name;
+    public void setElaborationDate(Timestamp elaborationDate) {
+        this.elaborationDate = elaborationDate;
     }
 
-    public Integer getStock_Quantity() {
-        return Stock_Quantity;
+    @Basic
+    @Column(name = "Stock_Quantity")
+    public int getStockQuantity() {
+        return stockQuantity;
     }
 
-    public void setStock_Quantity(Integer stock_Quantity) {
-        Stock_Quantity = stock_Quantity;
+    public void setStockQuantity(int stockQuantity) {
+        this.stockQuantity = stockQuantity;
     }
 
-    public Product getProduct() {
-        return product;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Stock stock = (Stock) o;
+        return stockQuantity == stock.stockQuantity &&
+                Objects.equals(stockCode, stock.stockCode) &&
+                Objects.equals(stockName, stock.stockName) &&
+                Objects.equals(dateRegistered, stock.dateRegistered) &&
+                Objects.equals(expirationDate, stock.expirationDate) &&
+                Objects.equals(elaborationDate, stock.elaborationDate);
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public Provider getProvider() {
-        return provider;
-    }
-
-    public void setProvider(Provider provider) {
-        this.provider = provider;
+    @Override
+    public int hashCode() {
+        return Objects.hash(stockCode, stockName, dateRegistered, expirationDate, elaborationDate, stockQuantity);
     }
 }

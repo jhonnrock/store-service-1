@@ -3,17 +3,38 @@ package edu.umss.storeservice.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-public class Stock {
+public class Stock extends ModelBase{
     private String stockCode;
     private String stockName;
     private Timestamp dateRegistered;
     private Timestamp expirationDate;
     private Timestamp elaborationDate;
     private int stockQuantity;
+    @ManyToOne(optional = false )
+    private Product product ;
+    @ManyToOne (optional = false )
+    private Provider provider;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
 
     @Basic
     @Column(name = "Stock_Code")

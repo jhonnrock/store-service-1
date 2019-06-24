@@ -1,17 +1,24 @@
 package edu.umss.storeservice.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "IMAGE_FILE", schema = "dbo", catalog = "SYSTEMSALES4")
-public class ImageFile {
+public class ImageFile  extends ModelBase{
     private String fileImageName;
     private String formatImage;
     private String urlImage;
+    @ManyToOne(optional = false)
+    private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
 
     @Basic
     @Column(name = "File_Image_Name")

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
-    <persistence-unit name="persistenceUnit"/>
+    <persistence-unit name="persistenceUnit">
+        <class>edu.umss.storeservice.model.ImageFile</class>
+        <class>edu.umss.storeservice.model.Product</class>
+        <class>edu.umss.storeservice.model.Provider</class>
+        <class>edu.umss.storeservice.model.Stock</class>
+        <class>edu.umss.storeservice.model.Users</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:sqlserver://localhost;database=systemsales"/>
+            <property name="hibernate.connection.driver_class" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+        </properties>
+    </persistence-unit>
 </persistence>

@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-public class Users {
+public class Users extends ModelBase {
     private String accountUser;
     private byte[] passwordUser;
     private byte[] rePasswordUser;

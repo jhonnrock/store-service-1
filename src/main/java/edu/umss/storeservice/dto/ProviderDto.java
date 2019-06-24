@@ -7,67 +7,58 @@ import java.sql.Timestamp;
 public class ProviderDto extends DtoBase<Provider> {
 
 
-    private String First_Name;
-    private String Last_Name;
-    private String Corporate_Name;
-    private Integer Nit_provee;
-    private Integer Ci_provee;
-    private Timestamp Birth_date;
-    private Long Person_Id;
+    private String firstName;
+    private String lastName;
+    private String corporateName;
+    private Integer nitProvee;
+    private Integer ciProvee;
+    private Timestamp birthDate;
 
-    public Timestamp getBirth_date() {
-        return Birth_date;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setBirth_date(Timestamp birth_date) {
-        Birth_date = birth_date;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getFirst_Name() {
-        return First_Name;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setFirst_Name(String first_Name) {
-        First_Name = first_Name;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getLast_Name() {
-        return Last_Name;
+    public String getCorporateName() {
+        return corporateName;
     }
 
-    public void setLast_Name(String last_Name) {
-        Last_Name = last_Name;
+    public void setCorporateName(String corporateName) {
+        this.corporateName = corporateName;
     }
 
-    public String getCorporate_Name() {
-        return Corporate_Name;
+    public Integer getNitProvee() {
+        return nitProvee;
     }
 
-    public void setCorporate_Name(String corporate_Name) {
-        Corporate_Name = corporate_Name;
+    public void setNitProvee(Integer nitProvee) {
+        this.nitProvee = nitProvee;
     }
 
-    public Integer getNit_provee() {
-        return Nit_provee;
+    public Integer getCiProvee() {
+        return ciProvee;
     }
 
-    public void setNit_provee(Integer nit_provee) {
-        Nit_provee = nit_provee;
+    public void setCiProvee(Integer ciProvee) {
+        this.ciProvee = ciProvee;
     }
 
-    public Integer getCi_provee() {
-        return Ci_provee;
+    public Timestamp getBirthDate() {
+        return birthDate;
     }
 
-    public void setCi_provee(Integer ci_provee) {
-        Ci_provee = ci_provee;
-    }
-
-    public Long getPerson_Id() {
-        return Person_Id;
-    }
-
-    public void setPerson_Id(Long person_Id) {
-        Person_Id = person_Id;
+    public void setBirthDate(Timestamp birthDate) {
+        this.birthDate = birthDate;
     }
 }

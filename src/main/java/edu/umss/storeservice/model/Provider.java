@@ -1,19 +1,27 @@
 package edu.umss.storeservice.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-public class Provider {
+public class Provider extends ModelBase {
     private String firstName;
     private String lastName;
     private String corporateName;
     private Integer nitProvee;
     private Integer ciProvee;
     private Timestamp birthDate;
+    @ManyToOne(optional = false)
+    private Users user;
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
     @Basic
     @Column(name = "First_Name")

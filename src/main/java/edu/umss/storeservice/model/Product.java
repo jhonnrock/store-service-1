@@ -6,10 +6,12 @@ import javax.persistence.Entity;
 import java.util.Objects;
 
 @Entity
-public class Product {
+public class Product extends ModelBase {
     private String nameProduct;
     private Integer quantityProduct;
     private Integer unitCostProduct;
+
+
 
     @Basic
     @Column(name = "Name_Product")

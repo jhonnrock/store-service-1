@@ -4,9 +4,9 @@
 
 package edu.umss.storeservice.repository;
 
-import edu.umss.storeservice.model.User;
+import edu.umss.storeservice.model.Users;
 
-public interface UserRepository extends StoredProcedureRepositoryImpl<User> {
+public interface UserRepository extends StoredProcedureRepositoryImpl<Users> {
 
 }
 

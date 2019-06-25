@@ -5,8 +5,10 @@
 package edu.umss.storeservice.repository;
 
 import edu.umss.storeservice.model.Users;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends StoredProcedureRepositoryImpl<Users> {
+@Repository
+public class UserRepository extends StoredProcedureRepositoryImpl<Users> {
 
 }
 

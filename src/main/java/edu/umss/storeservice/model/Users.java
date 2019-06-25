@@ -1,13 +1,53 @@
 package edu.umss.storeservice.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import edu.umss.storeservice.dto.UsersDto;
+
+import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Objects;
 
 @Entity
-public class Users extends ModelBase {
+
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "ListUsers",
+                procedureName = "ListUsers",
+                resultClasses = Users.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "DeleteUsersById",
+                procedureName = "DeleteUsersById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class),
+                        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "result", type = Boolean.class)
+                }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetUsersById",
+                procedureName = "GetUsersById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class)
+                },
+                resultClasses = Users.class
+        ),
+        @NamedStoredProcedureQuery(
+                name="SaveUsersAll",
+                procedureName="SaveUsersAll",
+                 parameters = {
+                            @StoredProcedureParameter(mode=ParameterMode.IN,name="id",type = Long.class),
+                            @StoredProcedureParameter(mode = ParameterMode.IN,name ="accountUser",type=String.class ),
+                            @StoredProcedureParameter(mode = ParameterMode.IN,name="passwordUser",type = byte.class),
+                            @StoredProcedureParameter(mode = ParameterMode.IN,name="rePasswordUser",type = byte.class),
+                            @StoredProcedureParameter(mode=ParameterMode.IN,name="securityQuest1",type =String.class),
+                            @StoredProcedureParameter(mode=ParameterMode.IN,name="securityQuest2",type =String.class )
+                 }
+
+        )
+
+})
+
+
+public class Users extends ModelBase<UsersDto> {
     private String accountUser;
     private byte[] passwordUser;
     private byte[] rePasswordUser;

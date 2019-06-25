@@ -1,12 +1,51 @@
 package edu.umss.storeservice.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import edu.umss.storeservice.dto.ProductDto;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-public class Product extends ModelBase {
+
+
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "ListProduct",
+                procedureName = "ListProduct",
+                resultClasses = Product.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "DeleteProductById",
+                procedureName = "DeleteProductById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class),
+                        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "result", type = Boolean.class)
+                }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetProductById",
+                procedureName = "GetProductById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class)
+                },
+                resultClasses = Product.class
+        ),
+        @NamedStoredProcedureQuery(
+                name="SaveProduct",
+                procedureName="SaveProduct",
+                parameters={
+                        @StoredProcedureParameter(mode=ParameterMode.IN, name="id",type=Long.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN, name="nameProduct",type=String.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN, name="quantityProduct",type=Integer.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN, name="unitCostProduct",type=Integer.class)
+
+
+                        }
+        )
+})
+
+
+public class Product extends ModelBase<ProductDto> {
     private String nameProduct;
     private Integer quantityProduct;
     private Integer unitCostProduct;

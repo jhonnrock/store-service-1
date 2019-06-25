@@ -1,11 +1,50 @@
 package edu.umss.storeservice.model;
 
+import edu.umss.storeservice.dto.ProviderDto;
+
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-public class Provider extends ModelBase {
+
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "ListProvider",
+                procedureName = "ListProvider",
+                resultClasses = Provider.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "DeleteProviderById",
+                procedureName = "DeleteProviderById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class),
+                        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "result", type = Boolean.class)
+                }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetProviderById",
+                procedureName = "GetProviderById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class)
+                },
+                resultClasses = Provider.class
+        ),
+        @NamedStoredProcedureQuery(
+                name="SaveProvider",
+                procedureName="SaveProvider",
+                parameters = {
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="id",type=Long.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="firstName",type=String.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="lastName",type=String.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="corporateName",type=String.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="nitProvee",type=Integer.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="ciProvee",type=Integer.class),
+                        @StoredProcedureParameter(mode=ParameterMode.IN,name="birthDate",type=Timestamp.class)
+                }
+        )
+})
+public class Provider extends ModelBase<ProviderDto> {
     private String firstName;
     private String lastName;
     private String corporateName;

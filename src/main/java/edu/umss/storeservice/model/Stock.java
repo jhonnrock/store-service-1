@@ -1,5 +1,7 @@
 package edu.umss.storeservice.model;
 
+import edu.umss.storeservice.dto.StockDto;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-public class Stock extends ModelBase{
+public class Stock extends ModelBase<StockDto>{
     private String stockCode;
     private String stockName;
     private Timestamp dateRegistered;

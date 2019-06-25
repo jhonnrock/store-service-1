@@ -5,8 +5,10 @@
 package edu.umss.storeservice.repository;
 
 import edu.umss.storeservice.model.Provider;
+import org.springframework.stereotype.Repository;
 
-public interface ProviderRepository extends StoredProcedureRepositoryImpl<Provider> {
+@Repository
+public class ProviderRepository extends StoredProcedureRepositoryImpl<Provider> {
 
 }
 

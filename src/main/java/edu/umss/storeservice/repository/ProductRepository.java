@@ -5,8 +5,10 @@
 package edu.umss.storeservice.repository;
 
 import edu.umss.storeservice.model.Product;
+import org.springframework.stereotype.Repository;
 
-public interface ProductRepository extends StoredProcedureRepositoryImpl<Product> {
+@Repository
+public class ProductRepository extends StoredProcedureRepositoryImpl<Product> {
 
 
 }

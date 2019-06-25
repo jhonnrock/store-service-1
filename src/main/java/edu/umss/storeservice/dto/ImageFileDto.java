@@ -3,6 +3,7 @@ package edu.umss.storeservice.dto;
 import edu.umss.storeservice.model.ImageFile;
 
 public class ImageFileDto extends DtoBase<ImageFile> {
+
     private String fileImageName;
     private String formatImage;
     private String urlImage;

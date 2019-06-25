@@ -1,11 +1,50 @@
 package edu.umss.storeservice.model;
 
+import edu.umss.storeservice.dto.ImageFileDto;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "IMAGE_FILE", schema = "dbo", catalog = "SYSTEMSALES4")
-public class ImageFile  extends ModelBase{
+@Table(name = "IMAGE_FILE")
+
+@NamedStoredProcedureQueries({
+        @NamedStoredProcedureQuery(
+                name = "ListImageFile",
+                procedureName = "ListImageFile",
+                resultClasses = ImageFile.class
+        ),
+        @NamedStoredProcedureQuery(
+                name = "DeleteImageFileById",
+                procedureName = "DeleteImageFileById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class),
+                        @StoredProcedureParameter(mode = ParameterMode.OUT, name = "result", type = Boolean.class)
+                }
+        ),
+        @NamedStoredProcedureQuery(
+                name = "GetImageFileById",
+                procedureName = "GetImageFileById",
+                parameters = {
+                        @StoredProcedureParameter(mode = ParameterMode.IN, name = "id", type = Long.class)
+                },
+                resultClasses = ImageFile.class
+        ),
+        @NamedStoredProcedureQuery(
+                name="SaveImageFIle",
+                procedureName = "AddImageFIle",
+                parameters = {
+                        @StoredProcedureParameter(name="id",mode = ParameterMode.IN,type=Long.class),
+                        @StoredProcedureParameter(name="fileImageName",mode=ParameterMode.IN,type=String.class),
+                        @StoredProcedureParameter(name="formatImage",mode =ParameterMode.IN,type=String.class),
+                        @StoredProcedureParameter(name="urlImage",mode=ParameterMode.IN,type=String.class)
+                }
+        )
+})
+
+
+
+public class ImageFile  extends ModelBase<ImageFileDto>{
     private String fileImageName;
     private String formatImage;
     private String urlImage;

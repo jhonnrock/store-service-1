@@ -1,11 +1,13 @@
 package edu.umss.storeservice.model;
 
+import edu.umss.storeservice.dto.PromotionsDto;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class Client extends ModelBase{
+public class Client extends ModelBase<PromotionsDto>{
     private String firstNameClient;
     private String lastNameClient;
     private String emailClient;

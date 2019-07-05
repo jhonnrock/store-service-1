@@ -1,12 +1,14 @@
 package edu.umss.storeservice.model;
 
+import edu.umss.storeservice.dto.PromotionsDto;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.sql.Date;
 
 @Entity
-public class Promotions extends ModelBase {
+public class Promotions extends ModelBase<PromotionsDto> {
     private String namePromotion;
     private Integer discountPromotion;
     private Date startproDatePro;

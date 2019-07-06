@@ -25,12 +25,14 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     private PositionService positionService;
     private SaleService saleService;
     private SubCategoryService subCategoryService;
+    private ClientService clientService;
 
-    public DevBootstrap(CategoryService categoryService, ContractService contractService,
-            EmployeeService employeeService, ExpenseService expenseService,
-            FeatureInstanceService featureInstanceService, FeatureService featureService,
-            ItemInstanceService itemInstanceService, ItemService itemService, PositionService positionService,
-            SaleService saleService, SubCategoryService subCategoryService) {
+
+    public DevBootstrap(ClientService clientService,CategoryService categoryService, ContractService contractService,
+                        EmployeeService employeeService, ExpenseService expenseService,
+                        FeatureInstanceService featureInstanceService, FeatureService featureService,
+                        ItemInstanceService itemInstanceService, ItemService itemService, PositionService positionService,
+                        SaleService saleService, SubCategoryService subCategoryService) {
         this.categoryService = categoryService;
         this.contractService = contractService;
         this.employeeService = employeeService;
@@ -42,6 +44,7 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         this.positionService = positionService;
         this.saleService = saleService;
         this.subCategoryService = subCategoryService;
+        this.clientService = clientService;
     }
 
     @Override
@@ -50,6 +53,15 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     }
 
     private void initData() {
+
+        Client clientlist=new Client();
+        clientlist.setFirstNameClient("juan");
+        clientlist.setLastNameClient("Perez");
+        clientlist.setEmailClient("juanperes@gmail.com");
+        clientlist.setNitClient(45547554);
+        clientlist.setNumberTelephoneC("455477");
+        clientlist.setCiClient(456888);
+        clientService.save(clientlist);
         // MAQUINARIA category
         Category maquinariaCategory = new Category();
         maquinariaCategory.setCode("MAQ");

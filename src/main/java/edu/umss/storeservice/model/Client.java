@@ -25,7 +25,7 @@ public class Client extends ModelBase<PromotionsDto>{
     }
 
 
-    public String getLastNameClient() {
+    public String getLastNameClient(String perez) {
         return lastNameClient;
     }
 
@@ -34,7 +34,7 @@ public class Client extends ModelBase<PromotionsDto>{
     }
 
 
-    public String getEmailClient() {
+    public String getEmailClient(String s) {
         return emailClient;
     }
 
@@ -43,7 +43,7 @@ public class Client extends ModelBase<PromotionsDto>{
     }
 
 
-    public String getNumberTelephoneC() {
+    public String getNumberTelephoneC(String s) {
         return numberTelephoneC;
     }
 
@@ -52,7 +52,7 @@ public class Client extends ModelBase<PromotionsDto>{
     }
 
 
-    public Integer getNitClient() {
+    public Integer getNitClient(int i) {
         return nitClient;
     }
 
@@ -60,7 +60,7 @@ public class Client extends ModelBase<PromotionsDto>{
         this.nitClient = nitClient;
     }
 
-    public Integer getCiClient() {
+    public Integer getCiClient(int i) {
         return ciClient;
     }
 

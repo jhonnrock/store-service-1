@@ -30,6 +30,8 @@ public class ClientController {
   @GetMapping
     protected List<Client>ListOfClient(){
           return this.service.findAll();
+
+
    }
 
 }

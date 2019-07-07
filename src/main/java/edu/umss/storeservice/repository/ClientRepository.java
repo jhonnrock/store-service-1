@@ -11,4 +11,5 @@ import org.springframework.stereotype.Service;
 public interface ClientRepository extends GenericRepository<Client> {
 
 
+    //Client findOne(Long id);
 }

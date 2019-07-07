@@ -7,7 +7,6 @@ package edu.umss.storeservice.service;
 import edu.umss.storeservice.dto.DtoBase;
 import edu.umss.storeservice.model.Client;
 import edu.umss.storeservice.repository.ClientRepository;
-import edu.umss.storeservice.repository.GenericRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -58,7 +57,7 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteById(Long id) {
-
+            this.repository.deleteById(id);
     }
 
     @Override

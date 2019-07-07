@@ -4,12 +4,8 @@
 
 package edu.umss.storeservice.controller;
 
-import edu.umss.storeservice.dto.ClientDto;
-import edu.umss.storeservice.dto.ItemDto;
 import edu.umss.storeservice.model.Client;
 import edu.umss.storeservice.service.ClientService;
-import edu.umss.storeservice.service.GenericService;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +24,17 @@ public class ClientController {
     protected List<Client>ListOfClient(){
           return this.service.findAll();
 
+
+   }
+   @PostMapping
+    public Client Saveclients(@RequestBody Client c){
+        return this.service.save(c);
+   }
+   @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
+   @DeleteMapping("clients/{id}")
+    public void DeleteClient(@PathVariable Long id){
+
+        this.service.deleteById(id);
 
    }
 

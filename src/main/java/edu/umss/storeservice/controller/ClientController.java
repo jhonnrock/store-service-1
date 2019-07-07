@@ -10,13 +10,10 @@ import edu.umss.storeservice.model.Client;
 import edu.umss.storeservice.service.ClientService;
 import edu.umss.storeservice.service.GenericService;
 import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
 @RequestMapping("/clients")
 public class ClientController {

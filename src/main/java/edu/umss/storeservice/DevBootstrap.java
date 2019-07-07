@@ -62,6 +62,15 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
         clientlist.setNumberTelephoneC("455477");
         clientlist.setCiClient(456888);
         clientService.save(clientlist);
+
+        Client clientlist2=new Client();
+        clientlist2.setFirstNameClient("juan2");
+        clientlist2.setLastNameClient("Perez2");
+        clientlist2.setEmailClient("juanperes2@gmail.com");
+        clientlist2.setNitClient(457554);
+        clientlist2.setNumberTelephoneC("89455477");
+        clientlist2.setCiClient(99438798);
+        clientService.save(clientlist2);
         // MAQUINARIA category
         Category maquinariaCategory = new Category();
         maquinariaCategory.setCode("MAQ");
